@@ -1,0 +1,225 @@
+body{
+	overflow:hidden;
+}
+
+.foreground,
+.midground,
+.background,.cel,.terra {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* ******************* */
+/*   HERBA PRIMERA     */
+/* ******************* */
+
+.foreground {
+	animation: parallax_fg linear 15s infinite both;
+	background: url(imatges/foreground_grass.png) 0 100% repeat-x;
+	z-index: 4;
+}
+
+@keyframes parallax_fg {  
+  0% { background-position: -3584px 100%;} 
+  100% {background-position: 0 100%; } 
+}
+
+/* ******************* */
+/*   HERBA SEGONA      */
+/* ******************* */
+
+.midground {
+  animation: mouresegona linear 50s infinite both;
+  background:  url(imatges/midground_grass.png) 0 100% repeat-x;
+  z-index: 3;
+}
+@keyframes mouresegona {
+	0% { background-position: -3584px 100%;} 
+  100% {background-position: 0 100%; } 
+}
+
+
+/* ******************* */
+/*     MUNTANYES       */
+/* ******************* */
+
+.background {
+  background-image:
+    url(imatges/background_mountain5.png),
+    url(imatges/background_mountain4.png),
+    url(imatges/background_mountain3.png);
+    /*url(imatges/background_mountain2.png);
+    url(imatges/background_mountain1.png);*/
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  z-index: 2;
+  animation: muntanyes linear 40s infinite both;
+}
+
+@keyframes muntanyes {
+	0% { background-position: -3584px 100%;} 
+  100% {background-position: 0 100%; } 
+}
+
+/* ******************* */
+/*       NUVOL         */
+/* ******************* */
+
+#cloud {
+	position: relative;
+	top: 20px;
+	left: -100px;
+	opacity: 0;
+	z-index: 2;
+	animation: nuvol 20s infinite;
+}
+
+.cloud {
+	border-radius: 90px / 30px;
+	width: 160px;
+	height: 50px;
+	background: #fff;
+	position: absolute;
+	top: 10px;
+}
+
+.cloud-2 {
+	left: 50px;
+	top: 0;
+}
+
+.cloud-3 {
+	left: 110px;
+	top: 20px;
+}
+
+@keyframes nuvol {
+	0% {bottom: 50%; left: 0%; opacity: 0;}
+	50% {opacity: 1;}
+	80% {opacity: 0;}
+	100% {left: 100%;}
+}
+/* ******************* */
+/*        SOL          */
+/* ******************* */
+
+#sun {
+	background: #ffd630;
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	border-radius: 70px;
+	z-index: 1;
+	bottom: calc(100% - 130px)
+	left: 340px;
+	animation: sol 20s infinite linear;
+}
+
+@keyframes sol {
+	0% {bottom: 35%; left: 100%;}
+	5% {bottom: 45%; left: 90%;}
+	10% {bottom: 55%; left: 80%;}
+	15% {bottom: 65%; left: 70%; background: orange;}
+	20% {bottom: 75%; left: 60%;}
+	25% {bottom: 80%; left: 50%;}
+	30% {bottom: 75%; left: 40%;}
+	35% {bottom: 65%; left: 30%; background: yellow;}
+	40% {bottom: 55%; left: 20%;}
+	45% {bottom: 45%; left: 10%;}
+	50% {bottom: 35%; left: 0%; background: red;}
+	51% {bottom: 0%; left: 0%;}
+	100% {bottom: 0%; left: 100%;}
+}
+
+/* ******************* */
+/*       LLUNA         */
+/* ******************* */
+
+#moon {
+	position: relative;
+	opacity: 0;
+	top: 20px;
+	left: -100px;
+	z-index:1;
+	animation: lluna 20s infinite;
+}
+
+.moon {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background: #fff;
+	position: absolute;
+}
+
+.moon-2 {
+	background: #525252;
+	position: absolute;
+	top: -20px;
+	left: 20px;
+}
+
+@keyframes lluna {
+	50% {bottom: 0%; left: 50%; opacity:0;}
+	51% {bottom: 35%;}
+	55% {bottom: 45%;}
+	60% {bottom: 55%; opacity: 0.50;}
+	65% {bottom: 65%;}
+	70% {bottom: 75%;}
+	75% {bottom: 80%; opacity: 1;}
+	80% {bottom: 75%;}
+	85% {bottom: 65%;}
+	90% {bottom: 55%; opacity: 0.50;}
+	95% {bottom: 45%;}
+	99% {bottom: 35%;}
+	100% {bottom: 0%; left: 50%; opacity: 0;}
+}
+
+/* ******************* */
+/*        CEL          */
+/* ******************* */
+
+.cel {
+	z-index: 0;
+	background-color: #525252;
+	animation: color 20s infinite;
+}
+@keyframes color {
+	0%{background-color: #66d9dd;}
+	20%{background-color: #66d9ff;}
+	43%{background-color: #66fff2;}
+	45%{background-color: #ffb366;}
+	50%{background-color: #ff8c66;}
+	51%{background-color: #525252;}
+	60%{background-color: #525252;}
+	75%{background-color: #525252;}
+	80%{background-color: #525252;}
+	90%{background-color: #525252;}
+	95%{background-color: #525252;}
+	99%{background-color: #525252;}
+	100%{background-color: #525252;}
+}
+
+/* ******************* */
+/*        Tigre        */
+/* ******************* */
+
+.tuna {
+  animation: walk-cycle 1s steps(12) infinite;
+  background: url(imatges/tuna_sprite.png) 0 0 no-repeat; 
+  height: 200px;
+  width: 400px;
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  margin-left: -200px;
+  transform: translateZ(0); /* offers a bit of a performance boost by pushing some of this processing to the GPU in Safari*/
+}
+
+@keyframes walk-cycle {  
+  0% {background-position: 0 0; } 
+  100% {background-position: 0 -2391px; } 
+}
